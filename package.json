@@ -1,0 +1,19 @@
+{
+  "name": "interferometrojs",
+  "version": "1.0.0",
+  "description": "Creates interferences in an image. Version javascript vanilla.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thyaggus/interferometrojs.git"
+  },
+  "author": "Tiago Souza Fraga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thyaggus/interferometrojs/issues"
+  },
+  "homepage": "https://github.com/thyaggus/interferometrojs#readme"
+}

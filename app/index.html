@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+        </canvas>
+        <script>
+            function interference() {
+
+                console.log('Entoru em intrefecrence');
+
+                const red = "#FF0000";
+                const green = "#00FF00";
+                const blue = "#0000FF";
+
+                function buildImage() {
+
+                    console.log('entrou em buildImage');
+
+                    let count = 0;
+                    let canvas = document.getElementById("myCanvas");
+                    let imagePiece = createImagePieces();
+                    console.log('Canvas: ', canvas);
+                    console.log('ImagePiece[]', imagePiece);
+                    imagePiece[2](canvas);
+
+                    let imagePieceLimit = imagePiece.length - 1;
+                    
+                    setInterval(() => {
+                        imagePiece[count](canvas);
+                        count = count === imagePieceLimit ? 0 : ++count;
+                    }, 1);
+                }
+
+                function drawSquare(color, canvas) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.fillStyle = color;
+                    ctx.fillRect(20, 20, 150, 100);
+                    return ctx;
+                }
+
+                function drawSquareRed(canvas) {
+                    drawSquare(red, canvas)
+                }
+
+                function drawSquareGreen(canvas) {
+                    drawSquare(green, canvas)
+                }
+
+                function drawSquareBlue(canvas) {
+                    drawSquare(blue, canvas);
+                }
+
+                function createImagePieces() {
+                    let imageArray = [];
+                    imageArray.push(drawSquareRed);
+                    imageArray.push(drawSquareGreen);
+                    imageArray.push(drawSquareBlue);
+                    return imageArray;
+                }
+
+                return {
+                    buildImage: buildImage
+                };
+            }
+            interference().buildImage();
+        </script>
+    </body>
+</html>
+
